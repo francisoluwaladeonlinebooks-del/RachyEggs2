@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-cinzel: 'Cinzel', 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --btn-dark: #1c1917; /* stone-900 */
+    --btn-dark-hover: #292524; /* stone-800 */
+    --btn-dark-active: #0c0a09; /* stone-950 */
+    --btn-dark-text: #ffffff;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+  }
+
+  .font-brand {
+    font-family: var(--font-cinzel);
+  }
+
+  /* Single Source of Truth: Shared Dark Button family (.btn-dark / .btn-primary) */
+  .btn-dark,
+  .btn-primary {
+    background-color: var(--btn-dark);
+    color: var(--btn-dark-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  }
+  .btn-dark:hover,
+  .btn-primary:hover {
+    background-color: var(--btn-dark-hover);
+  }
+  .btn-dark:active,
+  .btn-primary:active {
+    background-color: var(--btn-dark-active);
+    transform: scale(0.99);
+  }
+  .btn-dark:focus-visible,
+  .btn-primary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #F2A81D, 0 0 0 4px rgba(242, 168, 29, 0.3);
+  }
+  .btn-dark:disabled,
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .dark .btn-dark,
+  .dark .btn-primary {
+    background-color: #f5f5f4; /* stone-100 */
+    color: #1c1917; /* stone-900 */
+    border: 1px solid rgba(255, 248, 231, 0.25);
+  }
+  .dark .btn-dark:hover,
+  .dark .btn-primary:hover {
+    background-color: #ffffff;
+  }
+  .dark .btn-dark:active,
+  .dark .btn-primary:active {
+    background-color: #e7e5e4;
+  }
+}
+
+/* Subtle vintage parchment eggshell background pattern */
+.bg-parchment-pattern {
+  background-color: #fcf9f2;
+  background-image: radial-gradient(#e5dec9 0.75px, transparent 0.75px), radial-gradient(#ece4d0 0.75px, #fcf9f2 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.dark .bg-parchment-pattern {
+  background-color: #171513;
+  background-image: radial-gradient(#2d2822 0.75px, transparent 0.75px), radial-gradient(#26221d 0.75px, #171513 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Focus visibility for accessibility WCAG AA */
+*:focus-visible {
+  outline: 2px solid #b91c1c;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1ebd8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a373;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #78350f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
+}
+
+/* Hide scrollbar for clean horizontal tab rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
