@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import rachyLogo from '../assets/images/rachy_crest_logo_1791718641732.jpg';
 
 export const BUSINESS_INFO = {
   name: 'Rachy Fresh Eggs',
@@ -12,7 +13,7 @@ export const BUSINESS_INFO = {
   whatsapp: '2348132943544',
   whatsappDisplay: '08132943544',
   email: 'orders@rachyfresheggs.com',
-  logo: '/src/assets/images/rachy_crest_logo_1791718641732.jpg',
+  logo: rachyLogo || '/rachy_brand_logo.jpg',
   operatingHours: 'Monday – Saturday: 07:00 AM – 06:00 PM (Sunday Deliveries by Special Booking)',
   tagline: 'Farm-Fresh Quality Eggs for Every Home and Business',
   coreOffering: 'Supply and distribution of fresh eggs (retail and wholesale).',
